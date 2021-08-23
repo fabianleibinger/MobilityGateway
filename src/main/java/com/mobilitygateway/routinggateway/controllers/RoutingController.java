@@ -1,11 +1,11 @@
 package com.mobilitygateway.routinggateway.controllers;
 
-import com.mobilitygateway.routinggateway.models.NameList;
+import com.mobilitygateway.exceptions.BadGatewayException;
+import com.mobilitygateway.routinggateway.HttpRoutingGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 /**
  * Controller for a travel information application that handles all requests related to routing.
@@ -13,6 +13,9 @@ import java.util.List;
 @RestController
 @RequestMapping("routing")
 public class RoutingController {
+    //Path of the related controller at the upstream routing gateway.
+    private static final String PATH_SEGMENT = "routingServices/names";
+
     /**
      * Returns the names of the available routing services or throws BadGatewayException.
      *
@@ -20,15 +23,14 @@ public class RoutingController {
      */
     @GetMapping(path = "services")
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
-    public static NameList getRoutingServices() {
-        //TODO call correct controller moved to different service
-        NameList nameList = new NameList();
-        List<String> names = new ArrayList<>();
-        names.add("Openrouteservice");
-        names.add("Valhalla");
-        names.add("OpenTripPlanner");
-        nameList.setNames(names);
-        return nameList;
+    public static String getRoutingServices() {
+        HttpRoutingGateway httpService = new HttpRoutingGateway();
+        Optional<String> responseBody = httpService.getRequest(PATH_SEGMENT);
+        if (responseBody.isPresent()) {
+            System.out.println("Received routing service names successfully.");
+            return responseBody.get();
+        } else {
+            throw new BadGatewayException("Failed to receive routing service names.");
+        }
     }
 }

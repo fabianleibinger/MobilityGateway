@@ -26,6 +26,7 @@ public class HttpPreferenceService {
 
     /**
      * Sends a GET request to the preference service.
+     *
      * @param path
      * @param headers
      * @return Optional String response body
@@ -43,6 +44,7 @@ public class HttpPreferenceService {
 
     /**
      * Sends a POST request to the preference service.
+     *
      * @param path
      * @param headers
      * @param body
@@ -61,6 +63,7 @@ public class HttpPreferenceService {
 
     /**
      * Sends a PUT request to the preference service.
+     *
      * @param path
      * @param headers
      * @param body
@@ -79,6 +82,7 @@ public class HttpPreferenceService {
 
     /**
      * Returns a response to a http request.
+     *
      * @param request
      * @return Optional String response body
      */
@@ -97,6 +101,7 @@ public class HttpPreferenceService {
 
     /**
      * Sends a DELETE request to the preference service.
+     *
      * @param path
      * @param headers
      * @return Optional String response body
@@ -122,6 +127,7 @@ public class HttpPreferenceService {
 
     /**
      * Returns a URL including BASE_URL and a path.
+     *
      * @param path
      * @return String URL
      */
