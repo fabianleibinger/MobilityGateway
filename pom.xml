@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>RoutingGateway</artifactId>
+	<artifactId>MobilityGateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>RoutingGateway</name>
-	<description>API Gateway for Routing Services</description>
+	<name>MobilityGateway</name>
+	<description>API Gateway for a preference service and a routing gateway</description>
 	<properties>
 		<java.version>16</java.version>
 	</properties>
