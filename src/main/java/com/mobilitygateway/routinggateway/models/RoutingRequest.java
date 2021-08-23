@@ -1,4 +1,4 @@
-package com.mobilitygateway.routingservice.models;
+package com.mobilitygateway.routinggateway.models;
 
 import com.google.maps.model.LatLng;
 import com.mobilitygateway.preferenceservice.models.PreferenceProfile;

@@ -1,4 +1,4 @@
-package com.mobilitygateway.routingservice.models;
+package com.mobilitygateway.routinggateway.models;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.mobilitygateway.routingservice.controllers;
+package com.mobilitygateway.routinggateway.controllers;
 
-import com.mobilitygateway.routingservice.models.NameList;
+import com.mobilitygateway.routinggateway.models.NameList;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,14 +11,14 @@ import java.util.List;
  * Controller for a travel information application that handles all requests related to routing.
  */
 @RestController
-@RequestMapping("routingServices")
-public class RoutingServicesController {
+@RequestMapping("routing")
+public class RoutingController {
     /**
      * Returns the names of the available routing services or throws BadGatewayException.
      *
      * @return nameList
      */
-    @GetMapping(path = "names")
+    @GetMapping(path = "services")
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public static NameList getRoutingServices() {
