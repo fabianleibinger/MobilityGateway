@@ -1,10 +1,10 @@
 package com.routing.gateway.preferenceservice;
 
 import com.google.gson.Gson;
-import com.routing.gateway.preferenceservice.mobilitypreferences.AccessToken;
-import com.routing.gateway.preferenceservice.mobilitypreferences.Account;
-import com.routing.gateway.preferenceservice.mobilitypreferences.PreferenceProfile;
-import com.routing.gateway.preferenceservice.mobilitypreferences.UserProfile;
+import com.routing.gateway.preferenceservice.models.AccessToken;
+import com.routing.gateway.preferenceservice.models.Account;
+import com.routing.gateway.preferenceservice.models.PreferenceProfile;
+import com.routing.gateway.preferenceservice.models.UserProfile;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -136,7 +136,7 @@ public class User {
         headers.put("Content-Type", "application/json");
         headers.put("Authorization", this.getAuthorizationHeaderValue());
         Optional<String> responseBody
-                = httpService.postRequest("user/preferenceProfiles", headers, preferenceProfile.toJson());
+                = httpService.postRequest("user/preferenceProfiles", headers, new Gson().toJson(preferenceProfile));
         if (responseBody.isPresent()) {
             this.preferenceProfile = preferenceProfile;
             System.out.println("Added preference profile successfully.");
@@ -181,7 +181,7 @@ public class User {
         headers.put("Authorization", this.getAuthorizationHeaderValue());
         Optional<String> responseBody
                 = httpService.putRequest("user/preferenceProfiles/" + preferenceProfile.getProfileName(),
-                headers, preferenceProfile.toJson());
+                headers, new Gson().toJson(preferenceProfile));
         if (responseBody.isPresent()) {
             this.preferenceProfile = preferenceProfile;
             System.out.println("Updated preference profile successfully.");
@@ -223,7 +223,7 @@ public class User {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", "application/json");
         headers.put("Authorization", this.getAuthorizationHeaderValue());
-        Optional<String> responseBody = httpService.putRequest("user", headers, profile.toJson());
+        Optional<String> responseBody = httpService.putRequest("user", headers, new Gson().toJson(profile));
         if (responseBody.isPresent()) {
             this.profile = profile;
             System.out.println("Updated user profile successfully.");

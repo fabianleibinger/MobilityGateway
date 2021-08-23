@@ -1,9 +1,9 @@
 package com.routing.gateway.preferenceservice.controllers;
 
 import com.routing.gateway.preferenceservice.User;
-import com.routing.gateway.preferenceservice.controllers.exceptions.BadGatewayException;
-import com.routing.gateway.preferenceservice.mobilitypreferences.Account;
-import com.routing.gateway.preferenceservice.mobilitypreferences.UserProfile;
+import com.routing.gateway.exceptions.BadGatewayException;
+import com.routing.gateway.preferenceservice.models.Account;
+import com.routing.gateway.preferenceservice.models.UserProfile;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
