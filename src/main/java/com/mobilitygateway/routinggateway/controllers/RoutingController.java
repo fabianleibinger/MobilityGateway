@@ -43,7 +43,8 @@ public class RoutingController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
-    public static String receiveRoutes(String routingRequest) {
+    @ResponseBody
+    public static String receiveRoutes(@RequestBody String routingRequest) {
         HttpRoutingGateway httpService = new HttpRoutingGateway();
         Optional<String> responseBody = httpService.postRequest("routing", routingRequest);
         if (responseBody.isPresent()) {
